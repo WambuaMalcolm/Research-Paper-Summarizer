@@ -16,7 +16,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:image:type" content="image/jpeg" />
 
-    <link rel="icon" type="image/png" href="images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', path='images/favicon.ico')}}"
+    />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
     <meta property="og:updated_time" content="1440432930" />
@@ -30,11 +34,11 @@
         <img
           class="dpimg"
           onclick="openFullScreenDP()"
-          src="images/varshi1.jpg"
+          src="{{ url_for('static',path='images/chatbot.png')}}"
           alt=""
         />
         <div class="personalInfo">
-          <label id="name">Varshith V Hegde</label>
+          <label id="name">Research Paper AI summarizer</label>
           <label id="lastseen">last seen today at 3:24 pms</label>
         </div>
       </div>
@@ -43,7 +47,11 @@
     <div class="scrollable" id="myScrollable">
       <div class="fullScreenDP" id="fullScreenDP">
         <div class="insideDP">
-          <img class="dp" src="images/varshi1.jpg" alt="" />
+          <img
+            class="dp"
+            src="{{ url_for ('static', path='images/varshi1.jpg')}}"
+            alt=""
+          />
           <svg
             class="closeBTN"
             onclick="closeFullDP()"

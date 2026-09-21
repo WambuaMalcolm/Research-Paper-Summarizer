@@ -1,4 +1,4 @@
-var audio = new Audio("assets/sentmessage.mp3");
+var audio = new Audio("/static/assets/sentmessage.mp3");
 var contactString =
   "<div class='social'> <a target='_blank' href='tel:+916363549133'> <div class='socialItem' id='call'><img class='socialItemI' src='images/phone.svg'/><label class='number'></label></label></div> </a> <a href='mailto:varshithvh@gmail.com'> <div class='socialItem'><img class='socialItemI' src='images/gmail.svg' alt=''></div> </a> <a target='_blank' href='https://github.com/Varshithvhegde'> <div class='socialItem'><img class='socialItemI' src='images/github.svg' alt=''></div> </a> <a target='_blank' href='https://wa.me/916363549133'> <div class='socialItem'><img class='socialItemI' src='images/whatsapp.svg' alt=''>";
 var resumeString =
@@ -8,7 +8,33 @@ var addressString =
 
 function startFunction() {
   setLastSeen();
-  waitAndResponce("intro");
+
+  // Create intro message same as bot replies
+  var date = new Date();
+  var myLI = document.createElement("li");
+  var myDiv = document.createElement("div");
+  var greendiv = document.createElement("div");
+  var dateLabel = document.createElement("label");
+
+  dateLabel.setAttribute("id", "sentlabel");
+  dateLabel.innerText = date.getHours() + ":" + date.getMinutes();
+
+  myDiv.setAttribute("class", "received");
+  greendiv.setAttribute("class", "grey");
+  greendiv.innerHTML =
+    "Hello 👋, welcome to the Research Paper AI Summarizer! 📚✨ " +
+    "Upload a research paper (PDF) or type your question, and I’ll help you break it down into clear and concise summaries. " +
+    "You can also ask me specific questions about the paper’s content. Just type 'help' to see what I can do!";
+
+  myDiv.appendChild(greendiv);
+  myLI.appendChild(myDiv);
+  greendiv.appendChild(dateLabel);
+
+  document.getElementById("listUL").appendChild(myLI);
+
+  // auto scroll
+  var s = document.getElementById("chatting");
+  s.scrollTop = s.scrollHeight;
 }
 
 function setLastSeen() {
